@@ -8,7 +8,7 @@ p {
 }
 
 .button-collapse {
-  color: #ee6e73;
+  color: #4682B4;
 }
 
 .parallax-container {
@@ -69,10 +69,10 @@ footer.page-footer {
  	color:black;
  }
  .purple.lighten-1 {
-  background-color: #CC0066 !important;
+  background-color: #1E90FF !important;
 }
 .teal-text.text-lighten-2 {
-  color: #CC0066 !important;
+  color: #87CEFA !important;
 }
 .share-buttons{
 	list-style: none;
