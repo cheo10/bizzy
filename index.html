@@ -9,13 +9,11 @@
 	<!-- CSS  -->
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.css" />
 	<link rel="shortcut icon" href="images/favicon (8).ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon (8).ico" type="image/x-icon">
-
 </head>
 
-<body>
+<body ng-app="bizzy" ng-controller="bizzyController as $ctrl">
 	<div id="navbar" class="navbar-fixed scrollspy">
 		<nav class="" style="background-color:white;">
 			<div class="nav-wrapper container">
@@ -54,9 +52,11 @@
 
 			</div>
 		</div>
-		<div id="slick" class="parallax1">
-			<img id="background1" src="images/architect.jpeg">
-			<img id="background2" src="images/barista.jpeg">
+		<div ng-show="$ctrl.counter === 0" ng-cloak class="parallax">
+			<img id="background1" src="images/architect.jpeg" >
+		</div>
+		<div ng-show="$ctrl.counter !== 0" ng-cloak class="parallax">
+			<img id="background2" src="images/barista.jpeg" >
 		</div>
 	</div>
 
@@ -239,7 +239,7 @@
 
 	<!--  Scripts-->
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.min.js"></script>
+	<script src="js/angular.min.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
 	<script>
@@ -247,39 +247,41 @@
 			$('.materialboxed').materialbox();
 			$('.button-collapse').sideNav();
 
-			$('.parallax1').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 3
-			});
 		});
 	</script>
 	<script>
-		$('.head-link').click(function (e) {
-			e.preventDefault();
+		(function () {
+			'use strict';
+			$('.head-link').click(function (e) {
+				e.preventDefault();
 
-			var goto = $(this).attr('href');
+				var goto = $(this).attr('href');
 
-			$('html, body').animate({
-				scrollTop: $(goto).offset().top
-			}, 800);
-		});
+				$('html, body').animate({
+					scrollTop: $(goto).offset().top
+				}, 800);
+			});
 
-		var tile = 0;
+			var bizzy = angular.module('bizzy', []).controller('bizzyController', bizzyController);
 
-		function changeBackground() {
-			if (tile === 0) {
-				$('#title').text('Need Someone Skilled?');
-				$('#background1').hide();
-				$('#background2').show();
-				tile += 1;
-			} else {
-				$('#title').text('Need Something Done?');
-				$('#background2').hide();
-				$('#background1').show();
-				tile = 0;
+			function bizzyController($scope, $timeout, $interval, $window) {
+				var self = this;
+
+				self.initialize = initialize;
+				self.user = {};
+				self.counter = 0;
+
+				function initialize() {
+					self.rotateImg = $interval(function () {
+						self.counter = self.counter === 0 ? 1 : 0;
+						console.log(self.counter);
+						$scope.$apply();
+					}, 4000);
+				}
+
+				$window.onload = self.initialize();
 			}
-		}
+		})(window.angular);
 	</script>
 
 	<!-- <script>

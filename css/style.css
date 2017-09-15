@@ -49,7 +49,7 @@ footer.page-footer {
 
 
 
- .parallax img, .parallax1 img
+ .parallax img 
  {
  	 background-repeat: no-repeat;
  	 background-size: cover;

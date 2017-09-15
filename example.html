@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>LooxZ</title>
+
+	<script type="text/javascript" src="/lib/js/jquery-3.1.1.slim.min.js"></script>
+	<script type="text/javascript" src="/lib/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/lib/js/angular.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
+	<style media="screen">
+		.slideshow {
+			width: 100vw;
+			height: 100vh;
+		}
+
+		body {
+			background-color: black;
+		}
+
+		p{
+			color: white;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body ng-app="LooxZ">
+	<!-- <div id="landingDiv" ng-controller="landingController as $ctrl" ng-init="$ctrl.initialize()"> -->
+	<div id="landingDiv" ng-controller="landingController as $ctrl">
+
+		<div id="slideshow" class="">
+			<div class="col-sm-12" style="width:100%;height:100%;margin-left:25px;">
+				<img name="logo" src="/lib/img/LooxZ-white.png" style="position:absolute;width:400px;height:100px;margin-top:20%;">
+				<h2 style="position:absolute;width:400px;height:100px;margin-top:30%;color:white;font-family:serif" ng-if="$ctrl.words[$ctrl.counter]">Enter your <em>{{$ctrl.words[$ctrl.counter]}}</em></h2>
+			</div>
+			<div ng-show="$ctrl.counter === 0">
+				<img id="img1" src="/lib/img/white-female-cold.jpeg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 1" ng-cloak>
+				<img src="/lib/img/black-male-classyhip.jpg" alt="" class="slideshow">
+			</div>
+			<!-- <div ng-show="$ctrl.counter === 2" ng-cloak>
+				<img src="/lib/img/young-woman-beach.jpg" alt="" class="slideshow">
+			</div> -->
+			<div ng-show="$ctrl.counter === 2" ng-cloak>
+				<img src="/lib/img/business-suit.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 3" ng-cloak>
+				<img src="/lib/img/romantic-shoes-winter.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 4" ng-cloak>
+				<img src="/lib/img/beautiful.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 5" ng-cloak>
+				<img src="/lib/img/fashion-1844.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 6" ng-cloak>
+				<img src="/lib/img/female-fashionablesandals.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 7" ng-cloak>
+				<img src="/lib/img/female-woods.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 8" ng-cloak>
+				<img src="/lib/img/female-stylishwedges.jpg" alt="" class="slideshow">
+			</div>
+			<div ng-show="$ctrl.counter === 9" ng-cloak>
+				<div class="row">
+					<div class="col-sm-5">
+
+					</div>
+					<div class="col-sm-6" style="margin-top:15%">
+						<p>
+							Soon, these photos will be gone. In their place will be our best models... you: </p>
+						<p>
+							Crushing your new year’s resolution in your new gym outfit,
+						</p>
+						<p>
+							Rocking that chic skirt in your next board meeting,
+						</p>
+						<p>
+							Surprising your father with funny ties on his birthday...
+						</p>
+						<p>
+							No matter your budget, size, or style, we will find your perfect look... for free
+						</p>
+						<button type="button" name="button" data-toggle="modal" data-target="#formModal" class="btn btn-lg" style="background-color:white;color:black;border-radius:25px;float:right;">Sign Up</button>
+					</div>
+					<div class="col-sm-1">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<div id="formModal" class="modal fade col-xs-12 col-sm-12" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Join LooxZ</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group" style="">
+								<input type="text" name="email" class="form-control" ng-model="$ctrl.user.email" placeholder="Email" style="" aria-describedby="basic-addon1" required>
+							</div>
+							<br>
+							<div class="form-group">
+								<input type="text" name="name" class="form-control" ng-model="$ctrl.user.name" placeholder="Name" style="" aria-describedby="basic-addon1" required>
+							</div>
+							<br>
+							<div class="form-group">
+								<textarea name="brands" rows="4" cols="80" class="form-control" ng-model="$ctrl.user.brands" placeholder="Your favorite fashion brands"></textarea>
+							</div>
+							<br>
+							<div class="form-group">
+								<input type="text" name="budget" class="form-control" ng-model="$ctrl.user.budget" placeholder="Your Budget" style="" aria-describedby="basic-addon1">
+							</div>
+							<br>
+							<div class="form-group">
+								<input type="text" name="country" class="form-control" ng-model="$ctrl.user.country" placeholder="Country" style="" aria-describedby="basic-addon1">
+							</div>
+							<br>
+							<div class="checkbox">
+								<label>
+						      <input type="checkbox" ng-model="$ctrl.user.stylist"> Have an eye for fashion? Check here if you're interested in becoming an online stylist!
+						    </label>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary" ng-click="$ctrl.submitNewUser()">Join LooxZ</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		(function() {
+			'use strict';
+			document.addEventListener("DOMContentLoaded", function(event) {
+				var screen = $(document).width() < $(document).height() ? 'portrait' : 'landscape';
+				if (screen === 'portrait') {
+					Array.prototype.forEach.call(document.images, function(image) {
+						if (image.name !== 'logo') {
+							var src = image.src.split('/');
+							var img = src[src.length - 1].split('.');
+
+							img[0] = img[0] + '(mobile)';
+							image.src = '/lib/img/' + img.join('.')
+						}
+					});
+				}
+			});
+
+			// $(document).ready(function() {
+			// 	var screen = $(document).width() < $(document).height() ? 'portrait' : 'landscape';
+			// 	if (screen === 'portrait') {
+			// 		Array.prototype.forEach.call(document.images, function(image) {
+			// 			if (image.name !== 'logo') {
+			// 				var src = image.src.split('/');
+			// 				var img = src[src.length - 1].split('.');
+			//
+			// 				img[0] = img[0] + '(mobile)';
+			// 				image.src = '/lib/img/' + img.join('.')
+			// 			}
+			// 		});
+			// 	}
+			// });
+
+			var LooxZ = angular.module('LooxZ', []).controller('landingController', landingController);
+
+			function landingController($scope, $timeout, $http, $window) {
+				var self = this;
+
+				self.openFormModal = openFormModal;
+				self.closeFormModal = closeFormModal;
+				self.submitNewUser = submitNewUser;
+				self.initialize = initialize;
+				self.user = {};
+				self.counter = 0;
+				self.words = ['look', 'thoughts', 'ambition', 'love', 'lifestyle', 'attitude', 'budget', 'destination', 'size']
+
+				function openFormModal() {
+					$('#formModal').modal('open');
+				}
+
+				function closeFormModal() {
+					$('#formModal').modal('close');
+				}
+
+				function submitNewUser() {
+					// console.log(self.user);
+					$http.post('/signup', self.user).then(function(res) {
+						console.log(res, 'user successfully created');
+					});
+				}
+
+				function initialize() {
+					self.rotateImg = setInterval(function() {
+						if (self.counter !== 9) {
+							self.counter += 1;
+						}
+						$scope.$apply();
+					}, 4000);
+				}
+
+				$('#formModal').modal({
+					backdrop: 'static', //modal cannot be dimissed by clicking outside of the modal
+					show: false
+				});
+
+				$scope.$watch(angular.bind(this, function() {
+					return this.counter;
+				}), function(newValue) {
+					if (newValue === 10) {
+						clearInterval(self.rotateImg);
+					}
+				});
+
+				$window.onload = self.initialize();
+			}
+		})(window.angular);
+	</script>
+	<!-- <script type="text/javascript">
+	window.onload = function() {
+		angular.element(document.getElementById('landingDiv')).controller().initialize();
+	};
+
+	</script> -->
+</body>
+
+</html>
