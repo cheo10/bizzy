@@ -12,7 +12,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 460px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -66,10 +66,10 @@ footer.page-footer {
 }
  nav a.button-collapse
  {
- 	color:white;
+ 	color:black;
  }
  .purple.lighten-1 {
-  background-color: #35B7F4 !important;
+  background-color: #0e67ed !important;
 }
 .teal-text.text-lighten-2 {
   color: white !important;
