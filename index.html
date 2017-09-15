@@ -13,7 +13,7 @@
 	<link rel="icon" href="images/favicon (8).ico" type="image/x-icon">
 </head>
 
-<body ng-app="bizzy" ng-controller="bizzyController as $ctrl">
+<body>
 	<div id="navbar" class="navbar-fixed scrollspy">
 		<nav class="" style="background-color:white;">
 			<div class="nav-wrapper container">
@@ -53,8 +53,7 @@
 			</div>
 		</div>
 		<div class="parallax">
-			<img id="background1" ng-src="'images/architect.jpeg'" ng-show="$ctrl.counter === 0" ng-cloak>
-			<img id="background2" ng-src="'images/barista.jpeg'" ng-show="$ctrl.counter !== 0" ng-cloak>
+			<img id="background1" src="images/architect.jpeg">
 		</div>
 	</div>
 
@@ -146,11 +145,6 @@
 				<div class="col s6">
 					<img class="materialboxed responsive-img" data-caption="nature photographer" src="images/photographer1.jpg">
 				</div>
-			</div>
-			<!--row-->
-
-			<div class="center">
-				<a class="waves-effect waves-light btn purple lighten-1">View more</a>
 			</div>
 
 		</div>
@@ -270,28 +264,6 @@
 			});
 
 		});
-	</script>
-	<script>
-		(function () {
-			var bizzy = angular.module('bizzy', []).controller('bizzyController', bizzyController);
-
-			function bizzyController($scope, $timeout, $interval, $window) {
-				var self = this;
-
-				self.initialize = initialize;
-				self.user = {};
-				self.counter = 0;
-
-				function initialize() {
-					self.rotateImg = $interval(function () {
-						self.counter = self.counter === 0 ? 1 : 0;
-						// $scope.$apply();
-					}, 4000);
-				}
-
-				// $window.onload = self.initialize();
-			}
-		})(window.angular);
 	</script>
 
 	<!-- <script>
