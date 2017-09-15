@@ -1,6 +1,6 @@
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: black;
 }
 
 p {
@@ -66,13 +66,13 @@ footer.page-footer {
 }
  nav a.button-collapse
  {
- 	color:black;
+ 	color:white;
  }
  .purple.lighten-1 {
   background-color: #35B7F4 !important;
 }
 .teal-text.text-lighten-2 {
-  color: #87CEFA !important;
+  color: white !important;
 }
 .share-buttons{
 	list-style: none;
