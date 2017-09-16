@@ -176,17 +176,17 @@
 
 			<div class="row">
 
-				<form class="col s8">
+				<form id="gform" class="col s8" method="POST" action="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0wtN8E32i-zPthfPRyvMPR9ByTltgbcJz4MMZaRlpXuV2jkQV078Fwpp1qwvzOCfKykg4SJdtx7FX/pubhtml">
 
 					<div class="row">
 						<div class="input-field col s6">
-							<input id="name" type="text" class="validate">
+							<input id="name" type="text" name="name" class="validate">
 							<label for="name">Your Name</label>
 						</div>
 
 
 						<div class="input-field col s6">
-							<input id="email" type="email" class="validate">
+							<input id="email" type="email" name="email" class="validate">
 							<label for="email">Your Email</label>
 						</div>
 					</div>
@@ -194,21 +194,21 @@
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="message-sub" type="email" class="validate">
+							<input id="message-sub" type="email" name="message" class="validate">
 							<label for="message-sub">Message Subject</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
-							<textarea id="text_area" class="materialize-textarea"></textarea>
+							<textarea id="text_area" name="color" class="materialize-textarea"></textarea>
 							<label for="text_area">Your Message</label>
 						</div>
 					</div>
 
 
 					<div>
-						<a class="waves-effect waves-light btn purple lighten-1">Submit Registration<i class="mdi-content-send right"></i></a>
+						<a id="formsubmit" class="waves-effect waves-light btn purple lighten-1">Send Message<i class="mdi-content-send right"></i></a>
 					</div>
 				</form>
 
@@ -258,6 +258,12 @@
 				$('html, body').stop().animate({
 					scrollTop: $(goto).offset().top
 				}, 800);
+			});
+
+			$('#formsubmit').click(function (e) {
+				e.preventDefault();
+				$('#gform').submit();
+				window.alert('Thanks for signing up!');
 			});
 
 		});
