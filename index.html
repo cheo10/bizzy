@@ -195,7 +195,7 @@
 
 					<div class="row">
 						<div class="input-field col s7">
-							<input id="email" type="email" name="email" class="validate">
+							<input id="email" type="email" name="email" class="validate" required>
 							<label for="email">Email:</label>
 						</div>
 						<div class="input-field col s5">
@@ -311,11 +311,14 @@
 
 
 					<div>
-						<a id="formsubmit" class="waves-effect waves-light btn purple lighten-1">Submit<i class="mdi-content-send right"></i></a>
+						<!-- <a id="formsubmit" class="waves-effect waves-light btn purple lighten-1" onclick="handleFormSubmit();">Submit<i class="mdi-content-send right"></i></a> -->
+						<button class="waves-effect waves-light btn purple lighten-1" type="submit" name="action">Submit
+							<i class="mdi-content-send right"></i>
+						</button>
 					</div>
 				</form>
 
-				
+
 				<!-- <div class="col s12 m4">
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -330,6 +333,13 @@
 
 
 			</div>
+		</div>
+	</div>
+
+	<div class="container section scrollspy" id="thankyou_message">
+		<div class="section">
+			<h2>Thank You.</h2>
+			<h5>We will let you know when we launch :)</h5>
 		</div>
 	</div>
 
@@ -348,9 +358,8 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.min.js"></script>
 	<script src="js/init.js" defer></script>
-	<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"
-	    async></script>
-	<script defer>
+	<script src="js/formhandler.js"></script>
+	<script>
 		$(document).ready(function () {
 			$('.materialboxed').materialbox();
 			$('select').material_select();
@@ -365,18 +374,8 @@
 				}, 800);
 			});
 
-			$('#formsubmit').click(function (e) {
-				e.preventDefault();
-				$('#gform').submit();
-				window.alert('Thanks for signing up!');
-			});
-
 		});
 	</script>
-	<div id="thankyou_message" style="display:none;">
-		<h1>Thank You.</h1>
-		<h5>We will let you know when we launch :)</h5>
-	</div>
 </body>
 
 </html>
