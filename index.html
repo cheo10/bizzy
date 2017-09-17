@@ -102,7 +102,8 @@
 					<p style="">
 						Select a service category and sign up to receive alerts of customer requests.
 					</p>
-					<p style="">Whether you are a large enterprise, mom and pop, or an individual, we want to be your friendly matchmaker with customer requests.
+					<p style="">Whether you are a large enterprise, mom and pop, or an individual, we want to be your friendly matchmaker with customer
+						requests.
 					</p>
 				</div>
 			</div>
@@ -241,14 +242,24 @@
 
 
 	<!--  Scripts-->
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script src="js/init.js"></script>
-	<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
-	<script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js" defer></script>
+	<script src="js/materialize.min.js" defer></script>
+	<!-- <script src="js/init.js"></script> -->
+	<script data-cfasync="false" type="text/javascript" src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"
+	    async></script>
+	<script defer>
+		(function ($) {
+			$(function () {
+
+				$('.button-collapse').sideNav();
+				$('.parallax').parallax();
+
+			}); // end of document ready
+		})(jQuery); // end of jQuery name space
+
 		$(document).ready(function () {
 			$('.materialboxed').materialbox();
-			$('.button-collapse').sideNav();
+			// $('.button-collapse').sideNav();
 			$('.scrollspy').scrollSpy();
 			$('.head-link').click(function (e) {
 				e.preventDefault();
