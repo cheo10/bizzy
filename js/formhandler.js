@@ -75,7 +75,6 @@ function handleFormSubmit(event) { // handles form submit withtout any jquery
         console.log(xhr.responseText);
         document.getElementById('contactus').style.display = 'none'; // hide form
         document.getElementById('thankyou_message').style.display = 'block';
-        window.alert('Thanks for signing up!');
         return;
     };
     // url encode form data for sending as post data
