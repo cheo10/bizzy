@@ -115,3 +115,8 @@ nav li a {
 .select-wrapper {
   margin-top: 0px;
 }
+
+#honeypot {
+  display: none;
+  /*makes the field not visible to humans*/
+}
