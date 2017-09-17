@@ -65,7 +65,7 @@ function handleFormSubmit(event) { // handles form submit withtout any jquery
     //     document.getElementById('email-invalid').style.display = 'block';
     //     return false;
     // } else {
-    var url = event.target.action; //
+    var url = 'https://script.google.com/macros/s/AKfycbwV3Q0PYTTUSsETnT2fS9ggUOyHr9gsqHbWhFUJJtosuWRFl5Kb/exec';
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     // xhr.withCredentials = true;
